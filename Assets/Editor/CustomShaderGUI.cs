@@ -12,15 +12,15 @@ public class CustomShaderGUI : ShaderGUI
 
         Material targetMat = materialEditor.target as Material;
 
-        bool redify = Array.IndexOf(targetMat.shaderKeywords, "REDIFY_ON") != -1;
+        bool redify = Array.IndexOf(targetMat.shaderKeywords, "SPECULAR_ON") != -1;
         EditorGUI.BeginChangeCheck();
-        redify = EditorGUILayout.Toggle("Redify material", redify);
+        redify = EditorGUILayout.Toggle("Specular On", redify);
         if(EditorGUI.EndChangeCheck())
         {
             if (redify)
-                targetMat.EnableKeyword("REDIFY_ON");
+                targetMat.EnableKeyword("SPECULAR_ON");
             else
-                targetMat.DisableKeyword("REDIFY_ON");
+                targetMat.DisableKeyword("SPECULAR_ON");
         }
     }
 }
